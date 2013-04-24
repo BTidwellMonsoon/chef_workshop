@@ -7,6 +7,7 @@
 # All rights reserved - Do Not Redistribute
 #
 application_name = "myface"
+doc_root = "/srv/apache/#{application_name}"
 
 user application_name
 
@@ -58,4 +59,15 @@ end
 apache_site "#{application_name}.conf" do
   enable true
   notifies :restart, 'service[apache2]'
+end
+
+directory doc_root do
+  action :create
+  mode 0755
+  recursive true
+end
+
+template "#{doc_root}/index.php" do
+  source "index.php.erb"
+  mode 0644
 end
