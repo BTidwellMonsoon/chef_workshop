@@ -1,6 +1,9 @@
 site :opscode
+    cookbook "mysql"
+
 group :integration do
   cookbook "minitest-handler"
 end
+
 
 metadata
