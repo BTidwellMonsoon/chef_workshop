@@ -17,6 +17,8 @@ default.rb
 * Creates MySQL schema and seeds DB with data
 * Installs Apache & mod PHP
 * Disables Apache default web site
+* Configures Apache to serve MyFace on default port
+* Deploys MyFace application
 
 # Author
 Le Me (Blade Tidwell)

@@ -6,7 +6,9 @@
 # 
 # All rights reserved - Do Not Redistribute
 #
-user "myface"
+application_name = "myface"
+
+user application_name
 
 include_recipe "mysql::server"
 # Include the mysql Ruby bindings for Chef
@@ -19,7 +21,7 @@ mysql_connection_info = {:host => "localhost",
 
 # Metadata dependency on the database cookbook provides
 # access to the mysql_database provider.
-mysql_database 'myface' do
+mysql_database application_name do
   connection mysql_connection_info
     action :create
 end
@@ -46,3 +48,14 @@ node.default['apache']['default_site_enabled'] = false
 
 include_recipe "apache2"
 include_recipe "apache2::mod_php5"
+
+# Enable MyFace website
+template "#{node['apache']['dir']}/sites-available/myface.conf" do
+  source "apache2.conf.erb"
+  notifies :restart, 'service[apache2]'
+end
+
+apache_site "#{application_name}.conf" do
+  enable true
+  notifies :restart, 'service[apache2]'
+end
