@@ -15,6 +15,8 @@ default.rb
 * Adds `myface` user
 * Installs MySQL
 * Creates MySQL schema and seeds DB with data
+* Installs Apache & mod PHP
+* Disables Apache default web site
 
 # Author
 Le Me (Blade Tidwell)

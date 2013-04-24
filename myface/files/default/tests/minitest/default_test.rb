@@ -1,4 +1,5 @@
 require File.expand_path('../support/helpers', __FILE__)
+require File.expand_path('../../apache2/support/helpers', __FILE__)
 
 describe 'myface::default' do
 
@@ -16,6 +17,15 @@ describe 'myface::default' do
 
   it 'seeds the myface database' do
     myface_tables.must_include "users"
+  end
+
+  it 'enables and starts the httpd daemon' do
+    service("httpd").must_be_running
+    service("httpd").must_be_enabled
+  end
+
+  it 'enables mode_php5' do
+    apache_enabled_modules.must_include "php5_module"
   end
 
 end
