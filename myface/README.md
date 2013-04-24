@@ -12,6 +12,9 @@ None
 
 # Recipes
 default.rb
+* Adds `myface` user
+* Installs MySQL
+* Creates MySQL schema and seeds DB with data
 
 # Author
 Le Me (Blade Tidwell)

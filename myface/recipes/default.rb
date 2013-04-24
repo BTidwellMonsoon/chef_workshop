@@ -9,8 +9,8 @@
 user "myface"
 
 include_recipe "mysql::server"
-# #Include the mysql Ruby bindings for Chef
-include_recipe "mysql::ruby"
+# # #Include the mysql Ruby bindings for Chef
+# include_recipe "mysql::ruby"
 
 # Create mysql connection binding
 # mysql_connection_info = {:host => "localhost",
