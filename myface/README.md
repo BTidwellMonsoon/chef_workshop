@@ -12,9 +12,12 @@ None
 
 # Recipes
 default.rb
-* Adds `myface` user
+
+database.rb
 * Installs MySQL
 * Creates MySQL schema and seeds DB with data
+
+webserver.rb
 * Installs Apache & mod PHP
 * Disables Apache default web site
 * Configures Apache to serve MyFace on default port
