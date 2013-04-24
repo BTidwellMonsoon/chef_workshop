@@ -45,5 +45,9 @@ describe 'myface::default' do
       .with(:owner, "root")
       .and(:group, "root")  
   end
+  
+  it 'installs php-mysql' do
+    package("php-mysql").must_be_installed
+  end  
 
 end

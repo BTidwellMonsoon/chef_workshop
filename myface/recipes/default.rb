@@ -50,6 +50,11 @@ node.default['apache']['default_site_enabled'] = false
 include_recipe "apache2"
 include_recipe "apache2::mod_php5"
 
+package "php-mysql" do
+  action :install
+  notifies :restart, "service[apache2]"
+end
+
 # Enable MyFace website
 template "#{node['apache']['dir']}/sites-available/myface.conf" do
   source "apache2.conf.erb"
