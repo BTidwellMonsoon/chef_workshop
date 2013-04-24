@@ -1,6 +1,6 @@
 name             "myface"
-maintainer       "YOUR_NAME"
-maintainer_email "YOUR_EMAIL"
+maintainer       "Blake Tidwell"
+maintainer_email "blake@monsoonco.com"
 license          "All rights reserved"
 description      "Installs/Configures myface"
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
