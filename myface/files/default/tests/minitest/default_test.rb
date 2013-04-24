@@ -4,6 +4,7 @@ require File.expand_path('../../apache2/support/helpers', __FILE__)
 describe 'myface::default' do
 
   include Helpers::Myface
+  include Helpers::Apache
 
   # Example spec tests can be found at http://git.io/Fahwsw
   it 'creates a service account for the myface daemon' do
@@ -24,7 +25,7 @@ describe 'myface::default' do
     service("httpd").must_be_enabled
   end
 
-  it 'enables mode_php5' do
+  it 'enables mod_php5' do
     apache_enabled_modules.must_include "php5_module"
   end
 

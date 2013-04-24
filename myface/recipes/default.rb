@@ -42,4 +42,7 @@ end
 # Make teh web servr
 ###################################
 
+node.default['apache']['default_site_enabled'] = false
+
 include_recipe "apache2"
+include_recipe "apache2::mod_php5"
