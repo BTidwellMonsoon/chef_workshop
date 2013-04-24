@@ -13,3 +13,11 @@
     * `vagrant plugin install --plugin-version 1.2.0 vagrant-berkshelf`
     * Should *actually* work now.
 * Investigate [Bento](https://github.com/opscode/bento) for box provisioning (wrapper around Veewee)
+
+## Virtual Image Setup
+* Configure machine for use with Berkshelf using `berks configure`.
+    * After running this command, manually edit `~/.berkshelf/config.json`, and replace the contents of the file with the CentOS config from `gist 5112966.md`.
+* Create the scaffold for a custom cookbook: `berks cookbook myface --chef-minitest`
+    * This assumes a one-repo per project workflow.
+    * Berkshelf adds Vagrant/Berksfile, and a small test suite.
+* `cd myface && vagrant up` to get started.
