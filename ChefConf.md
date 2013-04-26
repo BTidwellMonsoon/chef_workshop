@@ -59,3 +59,27 @@
 
 ### Using the **Heavy Water Injector** cookbook, inject recipes or code blocks at arbitrary locs in a run
 * pre_deploy, pre_migrate, post_deploy
+
+## Keynote - Day 2
+* Continuous Delivery is not just for code; it is product
+* Customer service problems now mitigated by software and infra, not people
+
+> None of us should be thought of as anything less than our potential to change the world.
+
+## Homeboys Five things in Successful Companies?
+1. Strong cultures of personal empowerment and accountability
+    * Leaders set direction and just keep things on course
+    * Bad signs
+        * "Architects" who don't code
+        * No "full stack" devs
+1. Treating failure as a learning opp; not a dangerous thing
+    * Close second
+1. SOA
+    * Website, API, DB
+    * Easy to partition along failure domains
+    * Scale well; work segragation is easier for teams (people take accountability for component)
+1. Cultural allergies to things that make you slow
+    * Don't settle on slow, safe crap.
+1. Addicated to data about internal perf and user pereceptions
+    * Use this data to make decisions
+    * "Stop arguing, start measuring"
