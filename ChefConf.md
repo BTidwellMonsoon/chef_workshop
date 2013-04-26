@@ -18,8 +18,7 @@
 # Culture of CI (Everything Markdown)
 ## What is culture
 * Culture byproduct of consistent behavior
-* Organizatin values
-* Blah blah blah
+* Organization values
 * what are the group and team structures, relations, etc.
 * It is hierarachical there are super and sub-cultures.
 * It is emotional; changes or "affronts" to the culture evoke emotional response; handle with care
@@ -43,7 +42,7 @@
 1. Use exact deps in md.rb
 1. Manage using Berkshelf (don't use for dep calcs)
 1. List inferred cookbooks explicitly first
-1. One app infra eqauls one chef org
+1. One app infra equals one chef org
 
 ## Attrs vs Data Bags
 * Persistent something something *screw that slide anyway I didn't even want to read it.*
@@ -54,7 +53,7 @@
 * Allows for role version control
 
 ## Variable Convergence
-* Use dyn chef-client interval to paralellise srv conig e.g. separate app and master DB
+* Use dynamic chef-client interval to paralellise srv config e.g. separate app and master DB
 * Chef 11 prevents chef-client collisions
 
 ### Using the **Heavy Water Injector** cookbook, inject recipes or code blocks at arbitrary locs in a run
@@ -94,7 +93,7 @@
 ## Chef setup
 * Chef Repo
     * Jenkins
-    * Gihub Pull Req
+    * Github Pull Req
     * GroovyAxis
 * Sanity Checks
     * Parser Tests
@@ -112,3 +111,57 @@
     * OpenStack + knife-openstack
     * LXC
 * Look into chef-workflow
+
+# How to Let Devs Do Your Job (Kickstarter)
+* Lower MTTR (Mean Time To Recovery: time from awareness of failure to service back up)
+* Use *feature environments*; spin up an env with Chef and use a different default git branch
+    * When a feature is ready, move it to its own environment to test
+
+# Building Secure Server Baselines
+* By definition, any machine that is accessible is not secure
+* Reduce attack surface area; bring risk with org tolerance
+
+### Three Kinds of servers
+1. Secure
+1. Insecure
+1. Servers you think are secure
+
+> Look at NVD (National Vulnerability Database)
+
+### What is a baseline?
+* Settings, app config, running svc
+
+### Top Five Secure Baseline Tips
+1. Disable unneeded svc
+    * e.g. telnet, r-services, ftpd
+    * `docs.opscode.com/resource_script`
+    * `docs.opscode.com/resource_execute`
+    * `docs.opscode.com/dsl_recipe_use_ruby`
+1. Remove unneeded pkg
+    * Apache/NGinx only for server
+    * MySQL/etc.  only on DB server
+    * `docs.opscode.com/resource_script`
+    * `docs.opscode.com/resource_package`
+    * `docs.opscode.com/resource_execute`
+1. Restrict access to sensitive files/dir
+1. Remove insecure/def config
+    * Disable pswd auth for SSH
+        * Force pub key auth
+        * Disable empty passwords for user
+    * SSH: Ensure only v2 protocol conn allowed
+    * Apache: minimize loadable mods, and disable ServerTokens/ServerSignature directives
+    * `docs.opscode.com/essentials_cookbook_attribute_files.html`
+    * `docs.opscode.com/essentials_roles.html`
+1. Allow admin access only from trusted servers/clients
+    * Leverage the firewall
+        * 3rd party tools like fail2ban
+    * Don't allow (or at least restrict) 'server hopping'
+    * `community.opscode.com/cookbooks/fail2ban`
+    * `community.opscode.com/cookbooks/firewall`
+    * `community.opscode.com/cookbooks/ssh_known_hosts`
+
+### Resources for reading
+1. NIST SP800-123: Guide to General Server Security
+1. Halo Configuration Policy Rule Checks
+1. Center for Internet Security Benchmarks
+1. Microsoft Security Policies?
