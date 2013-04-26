@@ -83,3 +83,32 @@
 1. Addicated to data about internal perf and user pereceptions
     * Use this data to make decisions
     * "Stop arguing, start measuring"
+
+## Switch to CD
+* Large scope of change will destroy the company
+* Slow change leads to mediocrity
+* Go FULL-ON and KILL IT in a section at a time
+* Tooling is institutionalized culture
+
+# Disney in the Hizzy
+## Chef setup
+* Chef Repo
+    * Jenkins
+    * Gihub Pull Req
+    * GroovyAxis
+* Sanity Checks
+    * Parser Tests
+    * Foodcritic
+    * yard-chef
+    * unit tests
+* Upload to Chef Server
+    * SpiceWeasel (again!)
+    * knife exec (Ridley alternative)
+* Converge an instance
+    * Vagrant
+    * vagrant-window
+    * minitest-chef-handler (format as JUnit for Jenkins)
+        * Focus on func testing; this mirrors advice from Berks Workshop
+    * OpenStack + knife-openstack
+    * LXC
+* Look into chef-workflow
