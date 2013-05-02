@@ -17,8 +17,8 @@ describe 'myface::default' do
 
   it 'configures apache for myface' do
     link("#{node['apache']['dir']}/sites-enabled/myface.conf")
-    .must_exist.with(:link_type, :symbolic)
-    .and(:to, "#{node['apache']['dir']}/sites-available/myface.conf")
+      .must_exist.with(:link_type, :symbolic)
+      .and(:to, "#{node['apache']['dir']}/sites-available/myface.conf")
   end
 
   it 'deploys the myface index page' do
